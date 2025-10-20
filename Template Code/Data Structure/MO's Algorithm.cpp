@@ -1,7 +1,7 @@
 const int rootN = 555; // can be changed according to the N
-int freq[200000];
+int freq[200000]; // very carefull about this
 int distinct;
-vector<int> ar(200000);
+vector<int> ar(200000); // use assign() to assign the appropiate size
 
 struct query{
     int L;
