@@ -1,4 +1,3 @@
-vector<vector<int>> adjList;
 vector<int> topoLogicalSort(vector<pair<int, int>> edges, int nodeCount) {
     vector<int> inDegree(nodeCount + 1, 0);
     vector<vector<int>> adjList(nodeCount + 1);
@@ -6,8 +5,12 @@ vector<int> topoLogicalSort(vector<pair<int, int>> edges, int nodeCount) {
         inDegree[edge.second] += 1;
         adjList[edge.first].push_back(edge.second);
     }
+
+    // if answer is needed lexicographically small/large, use priority queue.
     queue<int> nodesWithIndegreeZero; 
-    for(int i = 0; i <nodeCount; i++) {
+    
+    // if node range is 1 to n, loop should run from 1 to n
+    for(int i = 0; i <nodeCount; i++) { 
         if(inDegree[i] == 0) {
             nodesWithIndegreeZero.push(i);
         }
